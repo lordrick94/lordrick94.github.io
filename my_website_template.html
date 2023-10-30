@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lordrick Aloyce Kahinga</title>
+  <style>
+    body {
+      background-image: url("202054.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: url("lord_rome.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      background-image: url("ucsc_logo.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0 auto;
+    }
+
+    .student-image {
+      width: 100px;
+      height: 100px;
+      background-image: url("student_image.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .about-me {
+      flex: 1;
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 40px;
+      animation: twinkling-text 2s linear infinite;
+    }
+
+    @keyframes twinkling-text {
+      0% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+    .about-me h2, .about-me p {
+      text-align: justify;
+    }
+
+    p {
+      font-size: 20px;
+      color: #964aad;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"></div>
+    <h1>PhD Student Homepage</h1>
+  </header>
+
+  <div class="content">
+    <div class="about-me">
+      <h2>About Me</h2>
+      <p>
+        Hello there! I am pursuing a Ph.D. in Astronomy and Astrophysics at the prestigious UC Santa Cruz,
+         where I am delving deep into the fascinating world of Fast Radio Bursts (FRBs) to explore the Circumgalactic
+          Medium (CGM) of nearby galaxies. 
+         I am also interested in uncovering the mysteries of the universe and shed light on the complexities 
+         of cosmology through the study of Damped Lyman-Alpha systems (DLAs). With a passion for unraveling 
+         the secrets of the cosmos and a commitment to excellence in my field, I am dedicated to making 
+         groundbreaking contributions to the scientific community.
+      </p>
+    </div>
+    <div class="student-image"></div>
+  </div>
+
+  <!-- Additional content and sections can be added here -->
+
+</body>
+</html>
