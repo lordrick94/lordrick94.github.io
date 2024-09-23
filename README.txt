@@ -1,1 +1,1 @@
-Mika Lambert's personal website!
+Lordrick Kahinga's personal website!
