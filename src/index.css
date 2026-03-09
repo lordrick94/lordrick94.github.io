@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-space-blue text-text-dark;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-cosmic-purple via-nebula-pink to-supernova-orange bg-clip-text text-transparent;
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(94, 53, 177, 0.3);
+  }
+}
