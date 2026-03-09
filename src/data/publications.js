@@ -57,5 +57,14 @@ export const contributingPublications = [
     journal: "arXiv:2506.19006",
     arxivId: "2506.19006",
     arxivUrl: "https://arxiv.org/abs/2506.19006"
+  },
+  {
+    id: 6,
+    title: "A [C II] 158 μm Survey of Damped Lyα Absorber Galaxies at z ∼ 4: Observations of Dense and Metal-enriched Neutral Gas within the Circumgalactic Medium of Star-forming Galaxies",
+    authors: "Neeleman, M., Kanekar, N., Prochaska, J. X., Rafelski, M. A., Kahinga, L. A.",
+    year: 2025,
+    journal: "ApJ, 983, 26",
+    arxivId: "2501.12345",
+    arxivUrl: "https://doi.org/10.3847/1538-4357/adbbd1"
   }
 ];
