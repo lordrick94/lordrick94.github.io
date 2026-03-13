@@ -99,20 +99,7 @@ const Outreach = () => {
             ))}
           </div>
 
-          {/* Mission Statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="bg-gradient-to-r from-cosmic-purple/20 to-nebula-pink/20 rounded-2xl p-8 md:p-12 border border-nebula-pink/30 text-center max-w-4xl mx-auto"
-          >
-            <p className="text-text-dark text-lg md:text-xl leading-relaxed italic">
-              "I hope to inspire students, particularly those from underrepresented communities,
-              to never give up on their aspirations. My journey from Tanzania to pursuing a PhD
-              at UC Santa Cruz shows that with passion and perseverance, dreams can become reality."
-            </p>
-            <p className="text-teal-burst font-semibold mt-6">- Lordrick A. Kahinga</p>
-          </motion.div>
+
         </motion.div>
       </div>
     </section>

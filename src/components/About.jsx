@@ -83,76 +83,36 @@ const About = () => {
               className="space-y-6"
             >
             <p className="text-text-dark/90 text-lg leading-relaxed">
-              I'm an astronomer currently pursuing a PhD at 
-              <span className="text-cosmic-purple font-semibold"> UC Santa Cruz</span>, 
-              originally from <span className="text-supernova-orange font-semibold">Arusha, Tanzania</span>. 
-              My path to astrophysics was not a typical one. I began my undergraduate studies in civil 
-              engineering in China, but had to leave the program after developing a serious kidney injury. 
-              During dialysis, I found myself returning to physics and gradually became drawn to the 
-              questions of cosmology and the structure of the universe. 
-            </p>
+            I'm an astronomer currently pursuing a PhD at 
+            <span className="text-cosmic-purple font-semibold"> UC Santa Cruz</span>, 
+            originally from Arusha, Tanzania. 
+            My path to astrophysics was not a typical one. I began my undergraduate studies in civil 
+            engineering in China, but had to leave the program after developing a serious kidney injury. 
+            During dialysis, I found myself returning to physics and gradually becoming drawn to 
+            questions about cosmology and the structure of the universe.
+          </p>
 
-            <p className="text-text-dark/90 text-lg leading-relaxed">
-              I later pursued a degree in physics at the University of Dodoma in Tanzania. 
-              While managing dialysis and eventually a kidney transplant, I completed my degree 
-              with first class honours and graduated as the top student in the College of 
-              Natural and Mathematical Sciences.
-            </p>
+          <p className="text-text-dark/90 text-lg leading-relaxed">
+            I later pursued a degree in physics at the 
+            <span className="text-supernova-orange font-semibold"> University of Dodoma in Tanzania</span>. 
+            While managing dialysis and eventually a kidney transplant, I completed my degree 
+            with first class honours and graduated as the top student in the College of 
+            Natural and Mathematical Sciences.
+          </p>
 
-            <p className="text-text-dark/90 text-lg leading-relaxed">
-              My current research focuses on using 
-              <span className="text-teal-burst font-semibold"> Fast Radio Bursts</span> as cosmological probes 
-              to study the distribution of baryons in galaxy halos and the intergalactic medium. 
-              I work with the CHIME/FRB collaboration and am particularly interested in how FRBs 
-              can help locate the universe’s “missing” baryons. Before coming to Santa Cruz, 
-              I worked on high-redshift Damped Lyman-Alpha systems at the 
-              Maria Mitchell Association.
-            </p>
+          <p className="text-text-dark/90 text-lg leading-relaxed">
+            My current research focuses on using Fast Radio Bursts as cosmological probes 
+            to study the distribution of baryons in galaxy halos and the intergalactic medium. 
+            I work with the <span className="text-teal-burst font-semibold"> CHIME/FRB collaboration </span> 
+            and am particularly interested in how FRBs can help locate the universe’s “missing” baryons. 
+            I feel fortunate to work with collaborators around the world and hope to help others 
+            discover the beauty of the night sky.
+          </p>
 
             </motion.div>
           </div>
 
-          {/* Timeline */}
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-3xl font-display font-bold text-center mb-12 gradient-text">
-              Academic Timeline
-            </h3>
-            <div className="space-y-8">
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.6 + index * 0.2, duration: 0.8 }}
-                  className="relative"
-                >
-                  <div className="flex items-start gap-6">
-                    {/* Icon */}
-                    <div className={`flex-shrink-0 w-16 h-16 bg-${item.color} rounded-full flex items-center justify-center shadow-lg`}>
-                      <item.icon className="text-3xl text-white" />
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 bg-surface/50 backdrop-blur-sm rounded-xl p-6 border border-text-dark/10 hover:border-${item.color}/50 transition-colors duration-300">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                        <h4 className="text-xl font-bold text-text-dark">{item.title}</h4>
-                        <span className={`text-${item.color} font-semibold text-sm sm:text-base`}>
-                          {item.year}
-                        </span>
-                      </div>
-                      <p className="text-teal-burst font-medium mb-2">{item.institution}</p>
-                      <p className="text-text-dark/80">{item.description}</p>
-                    </div>
-                  </div>
-
-                  {/* Connecting Line */}
-                  {index < timeline.length - 1 && (
-                    <div className="absolute left-8 top-16 w-0.5 h-8 bg-gradient-to-b from-text-dark/30 to-transparent" />
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          
         </motion.div>
       </div>
     </section>
