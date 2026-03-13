@@ -82,39 +82,21 @@ const About = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="flex items-start gap-3">
-                <HiLocationMarker className="text-teal-burst text-2xl mt-1 flex-shrink-0" />
-                <p className="text-text-dark/90 text-lg leading-relaxed">
-                  Born in <span className="text-supernova-orange font-semibold">Arusha, Tanzania</span>,
-                  I developed a passion for understanding the universe despite limited research opportunities
-                  in my home country.
-                </p>
-              </div>
-
               <p className="text-text-dark/90 text-lg leading-relaxed">
-                I graduated with <span className="text-nebula-pink font-semibold">First Class Honours</span> in
-                Physics from the University of Dodoma in 2022, where I also volunteered as a mathematics and
-                physics teacher at a local secondary school.
+                I'm a PhD candidate in Astronomy & Astrophysics at <span className="text-cosmic-purple font-semibold">UC Santa Cruz</span>,
+                originally from <span className="text-supernova-orange font-semibold">Arusha, Tanzania</span>. My path to astrophysics
+                took a few detours—including a kidney transplant that interrupted my studies—but I eventually
+                graduated with First Class Honours in Physics from the University of Dodoma in 2022.
               </p>
 
               <p className="text-text-dark/90 text-lg leading-relaxed">
-                My international research journey began at the Maria Mitchell Association in Nantucket,
-                where I worked on Damped Lyman-Alpha systems. This experience led me to pursue my PhD at
-                UC Santa Cruz in 2023.
+                My research focuses on using <span className="text-teal-burst font-semibold">Fast Radio Bursts</span> as
+                cosmological probes to study the distribution of baryons in galaxy halos and the intergalactic medium.
+                I work with the CHIME/FRB collaboration and am particularly interested in how FRBs can help us locate
+                the universe's "missing" baryons. Before Santa Cruz, I worked on high-redshift Damped Lyman-Alpha
+                systems at the Maria Mitchell Association. I also founded an Astronomy Club at UDOM to promote science
+                outreach in Tanzania.
               </p>
-
-              <p className="text-text-dark/90 text-lg leading-relaxed">
-                Today, I use <span className="text-cosmic-purple font-semibold">Fast Radio Bursts</span> as
-                cosmic probes to study baryon distributions in galaxy halos, contributing to solving the
-                "missing baryon" problem in cosmology.
-              </p>
-
-              <div className="pt-4 border-t border-text-dark/20">
-                <p className="text-teal-burst text-lg font-medium italic">
-                  "I hope to inspire students, particularly those from underrepresented communities,
-                  to never give up on their aspirations."
-                </p>
-              </div>
             </motion.div>
           </div>
 

@@ -4,165 +4,57 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Personal academic website for Lordrick A. Kahinga, PhD Candidate in Astronomy & Astrophysics at UC Santa Cruz. Modern single-page application showcasing FRB research, publications, and academic journey.
+Personal academic website for Lordrick A. Kahinga, PhD Candidate in Astronomy & Astrophysics at UC Santa Cruz. React 18 + Vite + Tailwind CSS single-page application with Framer Motion animations, deployed to GitHub Pages.
 
-## Technology Stack
-
-- **React 18** - UI framework
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Utility-first styling
-- **Framer Motion** - Animations
-- **React Icons** - Icon library
-- **GitHub Pages** - Hosting and deployment
-
-## Project Structure
-
-```
-my_website/
-├── src/
-│   ├── components/         # React components
-│   │   ├── Header.jsx      # Navigation with smooth scroll
-│   │   ├── Hero.jsx        # Landing section
-│   │   ├── About.jsx       # Personal journey timeline
-│   │   ├── Research.jsx    # FRB research areas
-│   │   ├── Publications.jsx # Academic papers
-│   │   ├── Talks.jsx       # Presentations timeline
-│   │   ├── Observing.jsx   # Observatory experience
-│   │   ├── Outreach.jsx    # Service and mentorship
-│   │   ├── Interests.jsx   # Personal hobbies
-│   │   └── Contact.jsx     # Contact info and footer
-│   ├── data/              # Structured content data
-│   │   ├── publications.js
-│   │   ├── talks.js
-│   │   ├── research.js
-│   │   └── observatories.js
-│   ├── assets/images/     # Photos and figures
-│   ├── App.jsx           # Main app component
-│   ├── main.jsx          # React entry point
-│   └── index.css         # Global styles + Tailwind
-├── public/cv/            # CV PDF files
-├── .github/workflows/    # GitHub Actions
-│   └── deploy.yml       # Auto-deployment workflow
-├── vite.config.js       # Vite configuration
-├── tailwind.config.js   # Custom theme colors
-└── package.json         # Dependencies
-```
-
-## Development
-
-### Commands
+## Development Commands
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server (http://localhost:5173/my_website/)
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build locally
-npm run preview
-```
-
-### Key Features
-
-- **Single Page App**: All sections on one page with smooth scroll navigation
-- **Responsive Design**: Mobile-first approach, works on all screen sizes
-- **Animations**: Scroll-triggered animations using Framer Motion and Intersection Observer
-- **Custom Theme**: Astronomy-inspired color palette (space blues, cosmic purples, vibrant accents)
-
-## Color Palette
-
-Located in `tailwind.config.js`:
-
-- `space-blue` (#0A1929) - Background
-- `cosmic-purple` (#5E35B1) - Primary accent
-- `nebula-pink` (#E91E63) - Secondary accent
-- `supernova-orange` (#FF6D00) - Highlights/CTAs
-- `teal-burst` (#00BCD4) - Interactive elements
-- `surface` (#1E1E2F) - Card backgrounds
-
-## Content Updates
-
-### Adding Publications
-
-Edit `src/data/publications.js`:
-- Add to `firstAuthorPublications` or `contributingPublications` array
-- Include arXiv ID and URL
-
-### Adding Talks
-
-Edit `src/data/talks.js`:
-- Add new talk object with institution, date, location
-
-### Updating Research Areas
-
-Edit `src/data/research.js`:
-- Modify `researchAreas` array
-- Update `technicalSkills` object
-
-### Changing Images
-
-Place new images in `src/assets/images/` and import in relevant component:
-```javascript
-import newImage from '../assets/images/new_image.jpg';
+npm install          # Install dependencies
+npm run dev          # Start dev server (http://localhost:5173/)
+npm run build        # Build for production (output: dist/)
+npm run preview      # Preview production build
 ```
 
 ## Deployment
 
-### GitHub Pages Setup
+Push to `main` branch triggers automatic deployment via `.github/workflows/deploy.yml`. Site is hosted at the user's GitHub Pages URL. The `base` path in `vite.config.js` is set to `/` for username.github.io hosting.
 
-1. **Repository Settings**:
-   - Go to Settings → Pages
-   - Source: GitHub Actions
-   - The workflow in `.github/workflows/deploy.yml` handles deployment
+## Architecture
 
-2. **Base Path**:
-   - Update `base` in `vite.config.js` to match your repo name
-   - Currently set to `/my_website/`
+### Component Pattern
 
-3. **Automatic Deployment**:
-   - Push to `main` branch triggers automatic build and deploy
-   - Site will be live at: `https://lordrick94.github.io/my_website/`
+All section components (`src/components/*.jsx`) follow this structure:
+- Use `useInView` hook from `react-intersection-observer` for scroll-triggered animations
+- Wrap content in Framer Motion `<motion.div>` with `initial`, `animate`, `transition` props
+- Use custom theme colors from `tailwind.config.js` (space-blue, cosmic-purple, nebula-pink, supernova-orange, teal-burst, surface)
+- Section IDs match navigation links in Header.jsx for smooth scroll
 
-### Manual Build
+### Data-Driven Content
 
-```bash
-npm run build
-# Output in dist/ directory
+Content is separated from presentation in `src/data/` files:
+
+**publications.js** - Arrays `firstAuthorPublications` and `contributingPublications`:
+```javascript
+{ id, title, authors, year, journal, arxivId, arxivUrl, description?, featured? }
 ```
 
-## Important Notes
+**talks.js** - Talk/presentation entries:
+```javascript
+{ id, title, event, location, date, type }
+```
 
-- **CV Updates**: Replace PDF in `public/cv/Lordrick_CV.pdf` when CV is updated
-- **Images**: Use JPG for photos, PDF for plots/figures
-- **Animations**: Components use `react-intersection-observer` for scroll-triggered animations
-- **Navigation**: Header component uses smooth scroll to section IDs
-- **Old Site**: Archived in `old_site/` directory (not used in production)
+**research.js** - Research areas and technical skills
 
-## Component Architecture
+**observatories.js** - Observatory experience entries
 
-All components follow this pattern:
-1. Use Framer Motion for animations
-2. Use `useInView` hook for scroll triggers
-3. Responsive grid layouts (mobile-first)
-4. Consistent color scheme from Tailwind config
-5. Smooth transitions and hover effects
+### Static Assets
 
-## Troubleshooting
+- **Images**: Import from `src/assets/images/` in components (Vite handles bundling)
+- **CV PDF**: Place in `public/cv/` (served directly without processing)
 
-### Build Issues
-- Clear `node_modules` and reinstall: `rm -rf node_modules && npm install`
-- Clear Vite cache: `rm -rf node_modules/.vite`
+## Key Files
 
-### Images Not Loading
-- Ensure images are imported at top of component
-- Check file paths are correct (case-sensitive)
-- Verify images exist in `src/assets/images/`
-
-### Deployment Failures
-- Check GitHub Actions logs in repository
-- Verify base path in `vite.config.js` matches repo name
-- Ensure GitHub Pages is enabled in repo settings
+- `tailwind.config.js` - Custom color palette and fonts
+- `vite.config.js` - Build config with base path setting
+- `src/App.jsx` - Main component composing all sections
+- `src/index.css` - Global styles including custom gradient-text class
