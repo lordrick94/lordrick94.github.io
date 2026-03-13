@@ -82,21 +82,33 @@ const About = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="space-y-6"
             >
-              <p className="text-text-dark/90 text-lg leading-relaxed">
-                I'm a PhD candidate in Astronomy & Astrophysics at <span className="text-cosmic-purple font-semibold">UC Santa Cruz</span>,
-                originally from <span className="text-supernova-orange font-semibold">Arusha, Tanzania</span>. My path to astrophysics
-                took a few detours—including a kidney transplant that interrupted my studies—but I eventually
-                graduated with First Class Honours in Physics from the University of Dodoma in 2022.
-              </p>
+            <p className="text-text-dark/90 text-lg leading-relaxed">
+              I'm an astronomer currently pursuing a PhD at 
+              <span className="text-cosmic-purple font-semibold"> UC Santa Cruz</span>, 
+              originally from <span className="text-supernova-orange font-semibold">Arusha, Tanzania</span>. 
+              My path to astrophysics was not a typical one. I began my undergraduate studies in civil 
+              engineering in China, but had to leave the program after developing a serious kidney injury. 
+              During dialysis, I found myself returning to physics and gradually became drawn to the 
+              questions of cosmology and the structure of the universe. 
+            </p>
 
-              <p className="text-text-dark/90 text-lg leading-relaxed">
-                My research focuses on using <span className="text-teal-burst font-semibold">Fast Radio Bursts</span> as
-                cosmological probes to study the distribution of baryons in galaxy halos and the intergalactic medium.
-                I work with the CHIME/FRB collaboration and am particularly interested in how FRBs can help us locate
-                the universe's "missing" baryons. Before Santa Cruz, I worked on high-redshift Damped Lyman-Alpha
-                systems at the Maria Mitchell Association. I also founded an Astronomy Club at UDOM to promote science
-                outreach in Tanzania.
-              </p>
+            <p className="text-text-dark/90 text-lg leading-relaxed">
+              I later pursued a degree in physics at the University of Dodoma in Tanzania. 
+              While managing dialysis and eventually a kidney transplant, I completed my degree 
+              with first class honours and graduated as the top student in the College of 
+              Natural and Mathematical Sciences.
+            </p>
+
+            <p className="text-text-dark/90 text-lg leading-relaxed">
+              My current research focuses on using 
+              <span className="text-teal-burst font-semibold"> Fast Radio Bursts</span> as cosmological probes 
+              to study the distribution of baryons in galaxy halos and the intergalactic medium. 
+              I work with the CHIME/FRB collaboration and am particularly interested in how FRBs 
+              can help locate the universe’s “missing” baryons. Before coming to Santa Cruz, 
+              I worked on high-redshift Damped Lyman-Alpha systems at the 
+              Maria Mitchell Association.
+            </p>
+
             </motion.div>
           </div>
 
