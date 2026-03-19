@@ -41,7 +41,7 @@ export const observatories = [
     name: "W. M. Keck Observatory",
     telescope: "Keck I & II",
     instrument: "KCWI",
-    nights: "~3",
+    nights: "1",
     role: "Contributing Observer",
     location: "Maunakea, Hawaii",
     icon: "telescope",
@@ -50,6 +50,18 @@ export const observatories = [
   },
   {
     id: 5,
+    name: "W. M. Keck Observatory",
+    telescope: "Keck I & II",
+    instrument: "MOSFIRE",
+    nights: "1",
+    role: "Contributing Observer",
+    location: "Maunakea, Hawaii",
+    icon: "telescope",
+    color: "space-blue",
+    description: "Multi-Object Spectrometer for Infrared Exploration"
+  },
+  {
+    id: 6,
     name: "Gemini North",
     telescope: "Gemini North",
     instrument: "GMOS",

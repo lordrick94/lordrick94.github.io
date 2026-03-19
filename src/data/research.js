@@ -18,7 +18,7 @@ export const researchAreas = [
     description: "Investigating the environments and host galaxies of Fast Radio Bursts to understand their progenitor systems and formation mechanisms.",
     highlights: [
       "Optical spectroscopic follow-up campaigns",
-      "100+ nights as PI at Lick Observatory",
+      "50+ nights as PI at Lick Observatory",
       "Multi-facility observations (Keck, Gemini)"
     ],
     color: "nebula-pink"

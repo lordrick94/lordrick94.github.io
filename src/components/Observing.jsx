@@ -37,7 +37,7 @@ const Observing = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="bg-gradient-to-r from-cosmic-purple/20 to-nebula-pink/20 rounded-2xl p-8 md:p-12 border border-nebula-pink/30 mb-16 text-center"
           >
-            <div className="text-5xl md:text-6xl font-bold gradient-text mb-4">100+ Nights</div>
+            <div className="text-5xl md:text-6xl font-bold gradient-text mb-4">70+ Nights</div>
             <p className="text-text-dark text-xl mb-2">at World's Leading Observatories</p>
             <p className="text-teal-burst font-semibold">Principal Investigator on majority of programs</p>
           </motion.div>
@@ -58,7 +58,7 @@ const Observing = () => {
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-space-blue/95 to-transparent p-4 rounded-b-2xl">
                 <p className="text-text-dark font-bold">Lick Observatory - Shane Telescope</p>
-                <p className="text-text-dark/80 text-sm">100+ nights as Principal Investigator</p>
+                <p className="text-text-dark/80 text-sm">50+ nights as Principal Investigator</p>
               </div>
             </motion.div>
 
@@ -76,7 +76,7 @@ const Observing = () => {
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-space-blue/95 to-transparent p-4 rounded-b-2xl">
                 <p className="text-text-dark font-bold">Maunakea - Keck & Gemini</p>
-                <p className="text-text-dark/80 text-sm">50+ nights combined</p>
+                <p className="text-text-dark/80 text-sm">20+ nights combined</p>
               </div>
             </motion.div>
           </div>

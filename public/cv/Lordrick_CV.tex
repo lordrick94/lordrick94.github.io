@@ -1,0 +1,412 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Lordrick A. Kahinga — CV  %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{article}
+\RequirePackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{calc}
+\usepackage[pdftex,final]{graphicx}
+\usepackage[shortcuts]{extdash}
+\reversemarginpar
+
+\usepackage[paper=letterpaper,
+            marginparwidth=1.2in,
+            marginparsep=.05in,
+            margin=0.5in,
+            includemp]{geometry}
+
+\setlength{\parindent}{0in}
+\usepackage[shortlabels]{enumitem}
+
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newlist{bibsection}{itemize}{3}
+\setlist[bibsection]{label=,leftmargin=\bibhang,%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\newlist{bibenum}{enumerate}{3}
+\setlist[bibenum]{label=[\arabic*],resume,leftmargin={\bibhang+\widthof{[999]}},%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\let\oldendbibenum\endbibenum
+\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+\let\oldendbibsection\endbibsection
+\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+\makeatother
+
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage}
+                    \hfill \,}}
+
+% Colors and hyperref
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.45}
+\definecolor{accentblue}{rgb}{0.08,0.35,0.65}
+\definecolor{rulegray}{rgb}{0.55,0.55,0.55}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=accentblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%% HEADING
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries \color{darkblue} #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \textcolor{accentblue}{\rule{\columnwidth}{1.5pt}}%
+         \end{minipage}}
+
+%%% SECTION HEADINGS — colored
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\hyphenpenalty=10000\raggedright \textcolor{accentblue}{#1}}}}%
+    \vspace{-\baselineskip}\par}
+
+\newcommand*\fixendlist[1]{%
+    \expandafter\let\csname preFixEndListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixEndListend#1\endcsname\vspace{-0.6\baselineskip}}}
+
+\let\originalItem\item
+\newcommand*\fixouterlist[1]{%
+    \expandafter\let\csname preFixOuterList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\def\item{\pagebreak[2]\oldItem}\csname preFixOuterList#1\endcsname}
+    \expandafter\let\csname preFixOuterListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\let\item\oldItem\csname preFixOuterListend#1\endcsname}}
+\newcommand*\fixinnerlist[1]{%
+    \expandafter\let\csname preFixInnerList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\let\item\originalItem\csname preFixInnerList#1\endcsname}
+    \expandafter\let\csname preFixInnerListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixInnerListend#1\endcsname\let\item\oldItem}}
+
+\newlist{outerlist}{itemize}{3}
+    \setlist[outerlist]{label=\enskip\textbullet,leftmargin=*}
+    \fixendlist{outerlist}
+    \fixouterlist{outerlist}
+
+\newlist{lonelist}{itemize}{3}
+    \setlist[lonelist]{label=\enskip\textbullet,leftmargin=*,partopsep=0pt,topsep=0pt}
+    \fixendlist{lonelist}
+    \fixouterlist{lonelist}
+
+\newlist{innerlist}{itemize}{3}
+    \setlist[innerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixinnerlist{innerlist}
+
+\newlist{loneinnerlist}{itemize}{3}
+    \setlist[loneinnerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixendlist{loneinnerlist}
+    \fixinnerlist{loneinnerlist}
+
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+\usepackage{doi}
+\usepackage{url}
+\urlstyle{same}
+\providecommand*\emaillink[1]{\nolinkurl{#1}}
+\providecommand*\email[1]{\href{mailto:#1}{\emaillink{#1}}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+\hyphenation{bio-mim-ic-ry bio-in-spi-ra-tion re-us-a-ble pro-vid-er Media-Wiki}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{Lordrick A. Kahinga}
+
+\section{Contact Information}
+
+\newlength{\rcollength}\setlength{\rcollength}{2.2in}%
+\newlength{\spacewidth}\setlength{\spacewidth}{20pt}
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength-\spacewidth}@{}p{\spacewidth}@{}p{\rcollength}}
+\parbox{\textwidth-\rcollength-\spacewidth}{%
+{\bf PhD Candidate, Astronomer}\\
+Department of Astronomy \& Astrophysics\\
+University of California, Santa Cruz\\
+1156 High Street, Santa Cruz, CA 95060}
+
+& \parbox[m][5\baselineskip]{\spacewidth}{} &
+
+\parbox{\rcollength}{%
+\textit{Mobile:} +255 765 486898\\
+\textit{E-mail:} \email{lkahinga@ucsc.edu}\\
+\textit{arXiv:} \href{https://arxiv.org/search/?searchtype=author&query=Kahinga}{Kahinga, L.~A.}\\
+\textit{ORCID:} \href{https://orcid.org/0009-0007-5296-4046}{0009-0007-5296-4046}}
+\end{tabular}
+
+%%
+\section{Research Interests}
+
+\textbf{Fast Radio Bursts (FRBs):} Host galaxy demographics; FRB progenitor theory; optical spectroscopic follow-up; FRBs as probes of the CGM and IGM; baryon census; cosmological parameter estimation.
+
+\textbf{Circumgalactic \& Intergalactic Medium:} Probing diffuse baryons in nearby galaxy halos using FRB dispersion measures; machine learning approaches to constrain baryon density in the CGM/IGM.
+
+\textbf{Galaxy Formation \& Evolution:} Quasar absorption lines; Damped Lyman-alpha systems (DLAs); physics of the interstellar and intergalactic medium.
+
+
+\section{Education}
+
+{\textbf{University of California, Santa Cruz}}, CA, USA
+\begin{outerlist}
+\item[] PhD, {Astronomy \& Astrophysics}, Sep 2023 -- present
+        \begin{innerlist}
+        \item Thesis: \emph{Uncovering Extra-Galactic Halo Baryon Distribution using Fast Radio Bursts}
+        \item Advisor: {Prof. J. Xavier Prochaska}
+        \end{innerlist}
+
+\item[] M.S., {Astronomy \& Astrophysics}, awarded 2025
+        \begin{innerlist}
+        \item University of California, Santa Cruz
+        \end{innerlist}
+\end{outerlist}
+
+\halfblankline
+
+{\textbf{University of Dodoma (UDOM)}}, Dodoma, Tanzania
+\begin{outerlist}
+\item[] B.Sc., {Physics}, Oct 2018 -- Dec 2022
+        \begin{innerlist}
+        \item GPA: First Class with Honours
+        \item Thesis: \emph{Potential for Tidal Energy Harnessing at the Dar es Salaam Coast}
+        \item Advisors: Dr.\ Bernard Mwankemwa and Dr.\ Stanley Mwanga
+        \end{innerlist}
+\end{outerlist}
+
+
+\section{Research Appointments}
+
+\textbf{Graduate Student Researcher}, UC Santa Cruz, CA \hfill {Sep 2023 -- present}
+    \begin{innerlist}
+    \item Project: \emph{FRB Host Galaxies, Progenitor Theory, and CGM Baryon Constraints}
+    \item PI for Lick/Shane spectroscopic programs (Prog IDs: 2024A\_S003, 2024B\_S005)
+    \item Member, CHIME/FRB Outriggers Collaboration
+    \item Member, DESI Collaboration
+    \item Advisor: Prof.\ J. Xavier Prochaska
+    \end{innerlist}
+
+\halfblankline
+
+\textbf{Postbaccalaureate Researcher}, Maria Mitchell Association, Nantucket, MA \hfill {Aug 2022 -- Aug 2023}
+    \begin{innerlist}
+    \item Project: \emph{Damped Lyman-Alpha Systems}
+    \item Advisors: Prof.\ J. Xavier Prochaska and Dr.\ Marcel Neeleman
+    \end{innerlist}
+
+
+\section{Teaching Appointments}
+
+\textbf{Teaching Assistant}, UC Santa Cruz, CA \hfill {Spring 2024}
+    \begin{innerlist}
+    \item Course: Introduction to Scientific Computing
+    \item Supervisor: Dr.\ Naor Movshovitz
+    \end{innerlist}
+
+\halfblankline
+
+\textbf{Teaching Assistant}, UC Santa Cruz, CA \hfill {Spring 2023}
+    \begin{innerlist}
+    \item Course: Advanced Astronomy Laboratory
+    \item Supervisor: Prof.\ J. Xavier Prochaska
+    \end{innerlist}
+
+\halfblankline
+
+\textbf{Teaching Assistant}, UC Santa Cruz, CA \hfill {Spring 2023}
+    \begin{innerlist}
+    \item Course: Advanced Astronomy Laboratory
+    \item Supervisor: Prof.\ J. Xavier Prochaska
+    \end{innerlist}
+
+\halfblankline
+
+\textbf{Tutorial Assistant}, University of Dodoma, Tanzania \hfill {Feb 2023 -- present}
+    \begin{innerlist}
+    \item Topics: Computational Physics, Mathematical Methods for Physicists, Electricity \& Magnetism
+    \item Supervisor: Dr.\ Bernard Mwankemwa
+    \end{innerlist}
+
+
+\section{Publications}
+
+\textbf{First-Author}
+
+\begin{bibsection}
+    \item \textbf{Kahinga, L. A.}, Prochaska, J. X., Simha, S., Leung, C., Cook, A. C., et al.\ (CHIME/FRB Collaboration), 2026,
+    \emph{Constraining the mass of the M31 ionized baryon halo using CHIME/FRB Catalog 2},
+    \href{https://arxiv.org/abs/2602.23749}{arXiv:2602.23749}
+\end{bibsection}
+
+\halfblankline
+
+\textbf{Contributing Author (selected)}
+
+\begin{bibsection}
+
+    \item CHIME/FRB Collaboration (incl.\ \textbf{Kahinga, L.}), Leung, C., et al., 2025,
+    \emph{A Catalog of Local Universe Fast Radio Bursts from CHIME/FRB and the KKO Outrigger},
+    \href{https://arxiv.org/abs/2502.11217}{arXiv:2502.11217}
+
+    \item Lanman, A. E., Simha, S., Masui, K. W., Prochaska, J. X., \ldots\ \textbf{Kahinga, L.}, et al., 2025,
+    \emph{Constraining Baryon Fractions in Galaxy Groups and Clusters with the First CHIME/FRB Outrigger},
+    \href{https://arxiv.org/abs/2509.07097}{arXiv:2509.07097}
+
+    \item Pastor-Marazuela, I., Gordon, A. C., Stappers, B., \ldots\ \textbf{Kahinga, L.}, et al., 2025,
+    \emph{Localisation and host galaxy identification of new Fast Radio Bursts with MeerKAT},
+    \href{https://arxiv.org/abs/2507.05982}{arXiv:2507.05982}
+
+    \item Caleb, M., Nanayakkara, T., Stappers, B., \ldots\ \textbf{Kahinga, L.}, et al., 2025,
+    \emph{A fast radio burst from the first 3 billion years of the Universe},
+    \href{https://arxiv.org/abs/2508.01648}{arXiv:2508.01648}
+
+    \item CHIME/FRB Collaboration (incl.\ \textbf{Kahinga, L.}), Abbott, T. C., et al., 2025,
+    \emph{FRB 20250316A: A Brilliant and Nearby One-Off Fast Radio Burst Localized to 13 parsec Precision},
+    \href{https://arxiv.org/abs/2506.19006}{arXiv:2506.19006}
+
+\end{bibsection}
+
+
+\section{Talks \& Presentations}
+
+\begin{innerlist}
+    \item \textbf{New Mexico State University (NMSU)}, Invited Talk \hfill {April 2026}\\
+    \emph{Constraining the Mass of the M31 Ionized Baryon Halo using CHIME/FRB Catalog 2}
+
+    \item \textbf{California Institute of Technology}, Invited Talk \hfill {November 2025}\\
+    \emph{Constraining the Mass of the M31 Ionized Baryon Halo using CHIME/FRB Catalog 2}
+
+    \item \textbf{University of Notre Dame}, Invited Talk \hfill {September 2025}\\
+    \emph{Constraining the Mass of the M31 Ionized Baryon Halo using CHIME/FRB Catalog 2}
+
+    \item \textbf{Northwestern , CIERA}, Invited Talk \hfill {September 2025}\\
+    \emph{Constraining the Mass of the M31 Ionized Baryon Halo using CHIME/FRB Catalog 2}
+
+    \item \textbf{FRB2025}, Montr\'eal, Canada \hfill {July 2025}\\
+    \emph{Contributed Talk: Constraining the Mass of the M31 Ionized Baryon Halo using CHIME/FRB Catalog 2}
+\end{innerlist}
+
+
+\section{Observing Experience}
+
+\begin{innerlist}
+    \item \textbf{Lick Observatory} (Shane/Kast): $>$50 nights \hfill (PI on majority of programs)
+    \item \textbf{W. M. Keck Observatory} (DEIMOS): 8 nights
+    \item \textbf{W. M. Keck Observatory} (LRIS): 12 nights
+    \item \textbf{W. M. Keck Observatory} (MOSFIRE): 1 night
+    \item \textbf{W. M. Keck Observatory} (KCWI): 1 night
+    \item \textbf{Gemini North} (GMOS): Long-and-Large Program (PI: Eftekhari), contributing observer
+\end{innerlist}
+
+
+\section{Technical Skills}
+
+\textbf{Languages \& Frameworks:}
+    \begin{innerlist}
+    \item Python (advanced): \texttt{astropy}, \texttt{numpy}, \texttt{scipy}, \texttt{emcee}, \texttt{matplotlib}, \texttt{PypeIt}, \texttt{frb}, \texttt{zdm}
+    \item Statistical \& ML methods: Bayesian inference, MCMC, Monte Carlo, PATH algorithm, machine learning (scikit-learn)
+    \item JavaScript \& React (proficient); SQL (proficient)
+    \item Bash/shell scripting, \LaTeX
+    \end{innerlist}
+
+\halfblankline
+
+\textbf{Tools \& Infrastructure:}
+    \begin{innerlist}
+    \item Docker (proficient); Git/GitHub; HPC cluster environments
+    \item Spectral reduction pipelines: PypeIt, DBSP\_DRP
+    \item Data archives: Pan-STARRS PS1, DECaLS, MAST, NED, Vizier
+    \end{innerlist}
+
+
+\section{Honors \& Awards}
+
+\begin{innerlist}
+    \item 2022 -- Principal's Academic Excellence Award: Best Student, College of Natural and Mathematical Sciences, University of Dodoma
+    \item 2022 -- CSMA AAS Micro-Grant Winner: International grant for graduate school application fees (\$650)
+    \item 2022 -- INAOE Master's Scholarship Winner
+    \item 2013 -- 3rd Prize, National Mathematics Contest, Mathematics Association of Tanzania
+    \item 2011 -- Certificate of Merit, National Mathematics Contest, Mathematics Association of Tanzania
+\end{innerlist}
+
+
+\section{Collaboration Memberships}
+
+\begin{innerlist}
+    \item CHIME/FRB Outriggers Collaboration
+    \item Dark Energy Spectroscopic Instrument (DESI) Collaboration
+\end{innerlist}
+
+
+\section{Service \& Outreach}
+
+\begin{innerlist}
+    \item 2024 -- Instructor, Python and Research (PyAR) Workshop, UCSC
+    \item 2022 -- Organiser, Shadow the Scientist Session, UDOM
+    \item 2019 -- Presentation, Astronomy Teaching Aids for Primary Schools, Astro-week, UDOM
+    \item 2016--2018 -- Volunteer Mathematics \& Physics Teacher, Sombetini Secondary School, Arusha, Tanzania
+\end{innerlist}
+
+
+\newpage
+
+\section{References}
+
+{\textbf{Prof.~J.~Xavier~Prochaska}}
+(\href{mailto:xavier@ucolick.org}{xavier@ucolick.org}; +1-831-459-2135)
+\begin{innerlist}
+    \item Professor, UCO/Lick Observatory
+    \item[$\diamond$] University of California, Santa Cruz — Dept.\ of Astronomy \& Astrophysics
+    \item[$\star$] \emph{PhD advisor at UCSC}
+\end{innerlist}
+
+\halfblankline
+
+{\textbf{Dr.~Regina~A.~Jorgenson}}
+(\href{mailto:rjorgenson@mariamitchell.org}{rjorgenson@mariamitchell.org}; +1-808-222-4600)
+\begin{innerlist}
+    \item Director of Astronomy, Maria Mitchell Association
+    \item[$\diamond$] Nantucket, Massachusetts 02554, USA
+    \item[$\star$] \emph{Research mentor}
+\end{innerlist}
+
+\halfblankline
+
+{\textbf{Dr.~Stanley~Mwanga}}
+(\href{mailto:stanley.mwanga@udom.ac.tz}{stanley.mwanga@udom.ac.tz}; +255 673 616 609)
+\begin{innerlist}
+    \item Lecturer, University of Dodoma, Tanzania
+    \item[$\star$] \emph{Undergraduate thesis supervisor}
+\end{innerlist}
+
+\halfblankline
+
+{\textbf{Dr.~Bernard~Mwankemwa}}
+(\href{mailto:bernard.samwel@udom.ac.tz}{bernard.samwel@udom.ac.tz}; +255 653 276 116)
+\begin{innerlist}
+    \item Lecturer, University of Dodoma, Tanzania
+    \item[$\star$] \emph{Undergraduate thesis supervisor}
+\end{innerlist}
+
+\halfblankline
+
+{\textbf{Dr.~Joyce~Lyimo}}
+(\href{mailto:joyce.lyimo2@udom.ac.tz}{joyce.lyimo2@udom.ac.tz}; +255 754 915 334)
+\begin{innerlist}
+    \item Lecturer, University of Dodoma, Tanzania
+    \item[$\star$] \emph{Research mentor}
+\end{innerlist}
+
+\end{document}
